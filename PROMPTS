@@ -1,0 +1,260 @@
+# 🧠 Ingeniería de Prompts — Signal Lab
+
+## 1. 🎯 Objetivo
+
+Este documento describe el proceso de ingeniería de prompts aplicado durante el desarrollo de **Signal Lab**, una plataforma interactiva de procesamiento de señales biomédicas sintéticas.
+
+El objetivo es documentar cómo se utilizaron instrucciones estructuradas para orientar el desarrollo de la aplicación web, incorporar funcionalidades de procesamiento digital de señales y mejorar la experiencia de usuario mediante un proceso iterativo.
+
+La documentación se centra en las decisiones más relevantes del proyecto: definición de la plataforma, desarrollo de los laboratorios biomédicos, personalización de la interfaz y verificación funcional.
+
+## 2. 🤖 Herramienta de inteligencia artificial utilizada
+
+**Herramienta principal: Lovable**
+
+Lovable se utilizó como herramienta de desarrollo asistido por inteligencia artificial para construir y modificar la aplicación web mediante instrucciones en lenguaje natural.
+
+El proceso combinó la generación y modificación de componentes con ajustes directos al código, especialmente para personalizar los colores y el diseño visual de la plataforma.
+
+La ingeniería de prompts permitió expresar los requisitos del proyecto, delimitar las funcionalidades esperadas y orientar las mejoras realizadas durante el desarrollo.
+
+---
+
+## 3. 🏗️ Prompt inicial: definición de Signal Lab
+
+### Objetivo
+
+Definir el propósito de la aplicación, sus usuarios, las funcionalidades principales y la organización general de la plataforma antes de profundizar en su implementación.
+
+### Prompt representativo
+
+> Actúa como un especialista en desarrollo web, procesamiento digital de señales e ingeniería biomédica.
+>
+> Desarrolla una plataforma educativa interactiva llamada Signal Lab, orientada al aprendizaje del procesamiento digital de señales biomédicas.
+>
+> La plataforma debe permitir explorar cuatro tipos de señales fisiológicas sintéticas: ECG, EMG, EEG y EGG.
+>
+> Organiza el contenido en laboratorios que faciliten la exploración de las características de las señales, su adquisición, sus métricas y las técnicas de procesamiento digital.
+>
+> La experiencia debe ser intuitiva, visual e interactiva, con controles para modificar parámetros y gráficas que permitan observar los resultados.
+>
+> Prioriza una estructura coherente, componentes reutilizables y una experiencia educativa que facilite la comprensión de los conceptos.
+>
+> Identifica claramente que las señales son sintéticas y que la plataforma tiene fines educativos, no diagnósticos.
+
+### ¿Qué se buscaba conseguir?
+
+Este prompt estableció la identidad funcional de Signal Lab. En lugar de solicitar únicamente una página informativa, definió una plataforma educativa en la que el usuario pudiera experimentar con señales biomédicas.
+
+Las instrucciones más importantes fueron:
+
+* **Rol:** orientar el desarrollo desde la perspectiva del desarrollo web y la ingeniería biomédica.
+* **Contexto:** establecer que la aplicación estaría dedicada al procesamiento de señales fisiológicas.
+* **Tarea:** desarrollar una plataforma interactiva con cuatro laboratorios.
+* **Requisitos:** incorporar controles, gráficas y herramientas de análisis.
+* **Restricciones:** utilizar señales sintéticas y mantener un propósito exclusivamente educativo.
+
+Esta definición sirvió como punto de partida para organizar las funcionalidades y los componentes de la aplicación.
+
+---
+
+## 4. 🔬 Desarrollo de funcionalidades: laboratorios biomédicos
+
+### Objetivo
+
+Ampliar la plataforma para incorporar laboratorios dedicados a ECG, EMG, EEG y EGG, procurando mantener una experiencia de uso coherente entre ellos.
+
+### Prompt representativo
+
+> Amplía Signal Lab para integrar laboratorios independientes de ECG, EMG, EEG y EGG.
+>
+> Cada laboratorio debe permitir generar y visualizar señales sintéticas, modificar los parámetros disponibles y explorar sus características mediante métricas y herramientas de procesamiento digital.
+>
+> Implementa funcionalidades apropiadas para cada tipo de señal, considerando sus características fisiológicas y frecuenciales.
+>
+> Reutiliza los componentes y las herramientas de procesamiento que sean compatibles con los laboratorios existentes. Evita duplicar innecesariamente la lógica compartida.
+>
+> Mantén la navegación, la presentación de las gráficas y la interacción consistentes entre los laboratorios.
+>
+> Conserva el funcionamiento del laboratorio ECG existente y evita introducir cambios que afecten sus funcionalidades previamente implementadas.
+>
+> Verifica que los controles y los cálculos correspondan a las características de cada señal.
+
+### ¿Qué se buscaba conseguir?
+
+Esta etapa se centró en ampliar la plataforma sin convertir cada laboratorio en una aplicación independiente.
+
+Las decisiones más relevantes fueron:
+
+* Incorporar cuatro tipos de señales biomédicas.
+* Adaptar los controles y las métricas a las características de cada señal.
+* Mantener una estructura común para facilitar la navegación.
+* Reutilizar las herramientas de procesamiento cuando fuera posible.
+* Preservar la funcionalidad que ya existía en el laboratorio ECG.
+
+Este enfoque buscó mejorar la organización del proyecto y facilitar su ampliación, evitando reconstruir innecesariamente componentes que podían compartirse.
+
+### Funcionalidades contempladas
+
+| Laboratorio | Aspectos principales                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------ |
+| ECG         | Exploración de señales electrocardiográficas y sus características.                        |
+| EMG         | Simulación de distintos niveles de actividad muscular y análisis de amplitud y frecuencia. |
+| EEG         | Exploración de bandas de frecuencia y características espectrales.                         |
+| EGG         | Análisis de ondas lentas, frecuencia dominante y período.                                  |
+
+Las funcionalidades específicas se adaptaron a cada laboratorio, manteniendo el objetivo educativo de la plataforma.
+
+---
+
+## 5. ⚡ Integración del procesamiento digital de señales
+
+### Objetivo
+
+Orientar la implementación de herramientas de análisis y procesamiento que permitieran experimentar con las señales y observar los cambios producidos por las operaciones digitales.
+
+### Prompt representativo
+
+> Integra herramientas de procesamiento digital de señales en los laboratorios de Signal Lab.
+>
+> Incluye análisis espectral, cálculo de métricas y aplicación de filtros digitales de acuerdo con las características de cada señal.
+>
+> Permite comparar la señal original con la señal procesada y visualizar los resultados de manera comprensible.
+>
+> Mantén separados los módulos de generación de señales, procesamiento y visualización cuando sea apropiado, favoreciendo la reutilización de la lógica.
+>
+> Comprueba que los parámetros utilizados en los cálculos sean coherentes con la frecuencia de muestreo y las unidades representadas.
+>
+> Evita mostrar resultados que no correspondan a los cálculos realizados y conserva las advertencias sobre el uso educativo de las señales sintéticas.
+
+### ¿Qué se buscaba conseguir?
+
+El propósito fue pasar de una visualización básica a una experiencia de experimentación con conceptos de procesamiento digital de señales.
+
+Se priorizaron tres aspectos:
+
+1. **Análisis:** obtener información cuantitativa y frecuencial de las señales.
+2. **Procesamiento:** aplicar filtros digitales y observar sus efectos.
+3. **Interpretación:** comparar los resultados para comprender cómo cambian las señales después del procesamiento.
+
+También se consideró la coherencia de los cálculos, las unidades y la frecuencia de muestreo para evitar representaciones incorrectas.
+
+---
+
+## 6. 🎨 Personalización de la interfaz y experiencia de usuario
+
+### Objetivo
+
+Adaptar la presentación visual de Signal Lab para construir una identidad gráfica coherente con el proyecto y mejorar la organización de los elementos de la interfaz.
+
+### Prompt representativo
+
+> Refina el diseño visual de Signal Lab para conseguir una interfaz moderna, clara y coherente con su identidad.
+>
+> Conserva la estructura funcional de la plataforma y prioriza la legibilidad de las gráficas, los controles y la información técnica.
+>
+> Mantén una identidad visual basada en tonos cafés, neutros y rojos, con fondos claros y contrastes suficientes para facilitar la lectura.
+>
+> Utiliza una jerarquía visual consistente para los títulos, las tarjetas, los botones, los paneles y las secciones de cada laboratorio.
+>
+> Evita introducir colores que no correspondan a la identidad visual existente.
+>
+> Prioriza la claridad de la información, la consistencia entre páginas y una experiencia de usuario intuitiva.
+>
+> No elimines ni alteres las funcionalidades existentes al modificar la presentación visual.
+
+### ¿Qué se buscaba conseguir?
+
+En esta etapa se trabajó sobre la presentación visual sin perder de vista la funcionalidad de la plataforma.
+
+Se consideraron los siguientes criterios:
+
+* Consistencia de colores y componentes.
+* Jerarquía visual para organizar la información.
+* Legibilidad de las gráficas y los controles.
+* Coherencia entre los diferentes laboratorios.
+* Conservación de las funcionalidades existentes.
+
+Además de utilizar instrucciones para orientar las modificaciones, se realizaron ajustes directamente en el código para personalizar colores y elementos del diseño.
+
+**Este punto es importante:** el proceso no se limitó a aceptar automáticamente los resultados de la inteligencia artificial. También implicó intervenir en el código para adaptar la interfaz a las decisiones de diseño del proyecto.
+
+---
+
+## 7. 🔄 Iteraciones y mejoras
+
+El desarrollo de Signal Lab se abordó como un proceso progresivo. Las instrucciones se utilizaron para orientar nuevas funcionalidades y ajustes, mientras que las modificaciones directas al código permitieron personalizar el resultado.
+
+### Iteración 1. Ampliación de los laboratorios
+
+**Necesidad identificada:** integrar diferentes tipos de señales biomédicas en una misma plataforma sin perder la coherencia de la experiencia de usuario.
+
+**Estrategia de prompting:** establecer los requisitos particulares de cada laboratorio y solicitar la reutilización de componentes y herramientas de procesamiento compatibles.
+
+**Resultado buscado:** contar con laboratorios de ECG, EMG, EEG y EGG organizados dentro de una misma aplicación.
+
+### Iteración 2. Personalización del diseño
+
+**Necesidad identificada:** adaptar la interfaz a la identidad visual de Signal Lab y mejorar la presentación de sus elementos.
+
+**Estrategia de prompting y modificación del código:** orientar las mejoras visuales mediante instrucciones y ajustar directamente los colores y otros elementos de la interfaz.
+
+**Resultado buscado:** una presentación visual más consistente, con una paleta de colores definida y una organización clara de la información.
+
+### Iteración 3. Verificación funcional
+
+**Necesidad identificada:** comprobar que las funcionalidades de los laboratorios estuvieran disponibles después de incorporar las modificaciones.
+
+**Estrategia de verificación:** revisar el funcionamiento de los componentes y las interacciones de la plataforma, prestando atención a los controles, las gráficas, las métricas y el procesamiento de señales.
+
+**Resultado:** se completó la verificación funcional de la plataforma, de acuerdo con las pruebas realizadas durante el desarrollo.
+
+*Nota: estas iteraciones resumen las etapas principales del proyecto. No representan necesariamente el orden exacto de cada instrucción enviada a Lovable.*
+
+---
+
+## 8. 🧪 Pruebas y corrección de errores
+
+La verificación funcional formó parte del proceso de desarrollo para comprobar que las funcionalidades implementadas respondieran a los requisitos de Signal Lab.
+
+La revisión se centró en los siguientes aspectos:
+
+* Funcionamiento de los laboratorios de señales biomédicas.
+* Interacción con los controles disponibles.
+* Generación y visualización de las señales.
+* Presentación de métricas y análisis espectral.
+* Aplicación de filtros digitales.
+* Comparación de señales originales y procesadas.
+* Navegación entre las diferentes secciones.
+
+La verificación permitió revisar la integración de las funcionalidades y comprobar su comportamiento en la aplicación.
+
+El registro de errores específicos debe incluir únicamente aquellos que se hayan identificado realmente durante las pruebas, junto con la modificación aplicada y el resultado observado.
+
+---
+
+## 9. 💡 Reflexión sobre la ingeniería de prompts
+
+El desarrollo de Signal Lab permitió explorar el uso de la inteligencia artificial como herramienta de apoyo para la construcción de una aplicación web con funcionalidades técnicas relacionadas con la ingeniería biomédica.
+
+Una de las principales lecciones fue la importancia de definir con claridad el objetivo, el contexto y los requisitos de cada tarea. Las instrucciones generales ayudan a establecer una dirección, mientras que los requisitos específicos permiten orientar mejor las funcionalidades y la presentación de los resultados.
+
+También fue importante distinguir entre la generación de componentes y la validación de su funcionamiento. Que una herramienta de inteligencia artificial genere una implementación no garantiza, por sí solo, que todas las funcionalidades se comporten correctamente.
+
+La personalización directa del código complementó el desarrollo asistido por IA y permitió adaptar la interfaz a las decisiones de diseño del proyecto.
+
+En conjunto, el proceso mostró que la ingeniería de prompts requiere definir objetivos, comunicar restricciones, evaluar resultados y realizar ajustes cuando sea necesario. La inteligencia artificial funcionó como una herramienta de apoyo, mientras que las decisiones de diseño, los requisitos del proyecto y la verificación final guiaron el desarrollo de Signal Lab.
+
+---
+
+## 10. 🌐 Proyecto
+
+**Signal Lab — Plataforma Interactiva de Procesamiento de Señales Biomédicas**
+
+* **Herramienta de desarrollo asistido por IA:** Lovable.
+* **Propósito:** educativo.
+* **Señales incluidas:** ECG, EMG, EEG y EGG.
+* **Acceso a la plataforma:** [Agregar URL pública].
+* **Repositorio:** [Agregar URL del repositorio].
+
+Las señales utilizadas en la plataforma son sintéticas. Signal Lab no tiene fines diagnósticos ni sustituye los sistemas de evaluación clínica.
